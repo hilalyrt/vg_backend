@@ -10,7 +10,6 @@ public class Egitim {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int egitim_id;
-        private int eeee;
         private  String okul;
         private double ortalama;
         private String fakulte ;
