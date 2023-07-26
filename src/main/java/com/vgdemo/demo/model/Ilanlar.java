@@ -24,5 +24,5 @@ public class Ilanlar {
     private String ilan_baslıgı;
     private int basvuru_sayisi;
     private String bitis_tarihi;
-
+    private String resim;
 }

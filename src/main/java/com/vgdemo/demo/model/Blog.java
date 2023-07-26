@@ -14,4 +14,5 @@ public class Blog {
     private String baslik;
     private String icerik;
 
+
 }
