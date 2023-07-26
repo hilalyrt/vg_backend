@@ -10,7 +10,7 @@ public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-  @Column(length = 100000)
+    @Column(length = 50000000)
     private String resim;
     private String baslik;
     private String icerik;

@@ -1,13 +1,17 @@
 package com.vgdemo.demo.controllers;
 
+
 import com.vgdemo.demo.model.Sirket;
+import com.vgdemo.demo.model.SirketLogo;
 import com.vgdemo.demo.services.SirketService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import com.vgdemo.demo.wrappers.SirketLogoWrapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/sirketler")
@@ -28,4 +32,32 @@ public class SirketController {
     public Sirket getSirketById(@PathVariable Integer sirketID){
         return sirketService.getOneSirket(sirketID);
     }
+
+
+    @PostMapping(value ="logo-yukle")
+    public ResponseEntity<SirketLogo> upload(@RequestBody SirketLogoWrapper param){
+
+        try{
+            SirketLogo logo = sirketService.upload(param);
+            return ResponseEntity.ok(logo);
+        }catch(Exception e){
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();}
+    }
+
+    @GetMapping(value = "get-logo/{sirketId}")
+    public String getLogo64BySirketId(@PathVariable Integer sirketId) {
+        try {
+            String logo = sirketService.getLogoBySirketId(sirketId);
+            if (logo != null) {
+                return logo;
+            } else {
+                System.out.println("Logo bulunamadı");
+                return null;
+            }
+        } catch (Exception e) {
+            System.out.println("Hata ");
+            return null;
+        }
+    }
+
 }
