@@ -14,5 +14,6 @@ public class Sirket {
     private String adres;
     private String sirket_aciklamasi ;
     private String web_sitesi;
+    @Column(length = 100000)
     private String logo;
 }

@@ -24,5 +24,6 @@ public class Ilanlar {
     private String ilan_baslıgı;
     private int basvuru_sayisi;
     private String bitis_tarihi;
+    @Column(length = 100000)
     private String resim;
 }

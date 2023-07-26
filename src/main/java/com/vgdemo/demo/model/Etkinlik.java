@@ -14,6 +14,7 @@ public class Etkinlik {
 
     private String baslik;
     private String icerik;
+   @Column(length = 100000)
     private String resim;
 }
 
