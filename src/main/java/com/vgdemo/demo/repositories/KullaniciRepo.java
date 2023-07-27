@@ -1,4 +1,4 @@
-package com.vgdemo.demo.repos;
+package com.vgdemo.demo.repositories;
 
 import com.vgdemo.demo.model.Kullanici;
 import org.springframework.data.jpa.repository.JpaRepository;

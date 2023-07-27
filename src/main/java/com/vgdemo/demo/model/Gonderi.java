@@ -16,7 +16,10 @@ public class Gonderi {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int gonderiId;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
     @ManyToOne
     @JoinColumn( name="kullaniciId")
@@ -28,5 +31,8 @@ public class Gonderi {
     private int sayacYorum;
     @Column(length = 50000000)
     private  String fotografGonderi;
+
+    private int sayacYorum;
+    private int sayacBegeni;
 
 }

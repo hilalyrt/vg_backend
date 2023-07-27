@@ -6,7 +6,7 @@ import lombok.Data;
 public class GonderiCreateRequest {
 
 
-     int gonderi_id;
+     int gonderiId;
      String metin;
      String icerik;
      String tarih;

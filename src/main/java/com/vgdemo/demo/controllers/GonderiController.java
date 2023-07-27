@@ -3,11 +3,10 @@ package com.vgdemo.demo.controllers;
 import com.vgdemo.demo.model.Gonderi;
 import com.vgdemo.demo.requests.GonderiCreateRequest;
 import com.vgdemo.demo.requests.GonderiUpdateRequest;
-import com.vgdemo.demo.service.GonderiService;
+import com.vgdemo.demo.services.GonderiService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 
 @RestController

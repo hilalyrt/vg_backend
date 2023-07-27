@@ -1,7 +1,7 @@
-package com.vgdemo.demo.service;
+package com.vgdemo.demo.services;
 
 import com.vgdemo.demo.model.Kullanici;
-import com.vgdemo.demo.repos.KullaniciRepo;
+import com.vgdemo.demo.repositories.KullaniciRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

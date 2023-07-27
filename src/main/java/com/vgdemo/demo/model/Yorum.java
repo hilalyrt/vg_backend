@@ -27,4 +27,8 @@ public class Yorum {
 
     private String yorum_metni;
     private String yorum_tarihi;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 }

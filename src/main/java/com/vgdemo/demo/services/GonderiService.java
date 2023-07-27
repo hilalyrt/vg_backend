@@ -1,8 +1,8 @@
-package com.vgdemo.demo.service;
+package com.vgdemo.demo.services;
 
 import com.vgdemo.demo.model.Gonderi;
 import com.vgdemo.demo.model.Kullanici;
-import com.vgdemo.demo.repos.GonderiRepo;
+import com.vgdemo.demo.repositories.GonderiRepo;
 import com.vgdemo.demo.requests.GonderiCreateRequest;
 import com.vgdemo.demo.requests.GonderiUpdateRequest;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ public class GonderiService {
 
     public List<Gonderi> getAllGonderi(Optional<Long> userId) {
         if(userId.isPresent())
-            return gonderiRepo.findByKullaniciKullaniciId(userId.get());
+            return gonderiRepo.findByKullanicikullanici_id(userId.get());
                     return gonderiRepo.findAll();
     }
 
@@ -41,7 +41,11 @@ Kullanici kullanici=kullanıcıService.getOneUserById(newPostRequest.getKullanic
 if (kullanici==null)
     return null;
 Gonderi toSave=new Gonderi();
+<<<<<<< Updated upstream:src/main/java/com/vgdemo/demo/service/GonderiService.java
 toSave.setGonderiId(newPostRequest.getGonderi_id());
+=======
+toSave.setGonderiId(newPostRequest.getGonderiId());
+>>>>>>> Stashed changes:src/main/java/com/vgdemo/demo/services/GonderiService.java
 toSave.setIcerik(newPostRequest.getIcerik());
 
 toSave.setKullanici(kullanici);

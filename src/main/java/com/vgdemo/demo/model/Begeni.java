@@ -18,6 +18,7 @@ public class Begeni {
 
 
     @ManyToOne
+<<<<<<< Updated upstream
     @JoinColumn(name = "kullaniciId")
     private Kullanici kullanici;
 
@@ -26,4 +27,15 @@ public class Begeni {
     private Gonderi gonderi;
 
 
+=======
+    @JoinColumn(name = "kullaniciId");
+    private Kullanici kullanici;
+
+    @ManyToOne
+    //@JoinColumn(name="gonderiId");
+    private Gonderi gonderi;
+
+
+
+>>>>>>> Stashed changes
 }

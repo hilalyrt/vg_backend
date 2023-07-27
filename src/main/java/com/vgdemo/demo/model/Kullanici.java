@@ -13,7 +13,10 @@ public class Kullanici {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int kullaniciId;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
     private String ad;
     private String soyad;

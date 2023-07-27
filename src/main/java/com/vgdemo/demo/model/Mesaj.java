@@ -17,7 +17,11 @@ public class Mesaj {
     private int mesaj_id;
 
     @OneToOne
+<<<<<<< Updated upstream
     @JoinColumn(name = "gonderen_id", referencedColumnName = "kullaniciId")
+=======
+    @JoinColumn(name = "gonderenId", referencedColumnName = "kullaniciId")
+>>>>>>> Stashed changes
     private Kullanici kullanici;
 
     @OneToOne

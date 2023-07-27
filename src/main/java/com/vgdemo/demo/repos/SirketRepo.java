@@ -1,4 +1,0 @@
-package com.vgdemo.demo.repos;
-
-public interface SirketRepo {
-}
