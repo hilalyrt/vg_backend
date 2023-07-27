@@ -41,9 +41,6 @@ public class SirketService {
         return sirketLogoRepo.save(sirketLogo);
     }
 
-
-
-
     public String getLogoBySirketId(Integer sirketId) {
         return sirketRepo.findById(sirketId).get().getLogo();
     }

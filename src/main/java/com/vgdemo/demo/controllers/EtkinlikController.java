@@ -29,5 +29,11 @@ public class EtkinlikController {
             return etkinlikService.getOneEtkinlik(etlinlikId);
         }
 
+        @GetMapping("/{etkinlikId}/resim ")
+        public String getResimBase64(@PathVariable Integer etkinlikId){
+            return etkinlikService.getBase64(etkinlikId);
+            }
+
+
 
 }

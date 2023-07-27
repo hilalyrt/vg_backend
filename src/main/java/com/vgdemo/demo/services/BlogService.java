@@ -23,4 +23,8 @@ public class BlogService {
     public Blog getOneBlog(Integer id){
         return blogRepo.findById(id).orElse(null);
     }
+
+    public String getBase64(Integer blogId) {
+        return blogRepo.findById(blogId).get().getResim();
+    }
 }

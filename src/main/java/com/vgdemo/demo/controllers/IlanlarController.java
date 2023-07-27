@@ -53,6 +53,11 @@ public class IlanlarController {
         return ResponseEntity.status(HttpStatus.CREATED).body(yeniIlan);
     }
 
+    @GetMapping("{ilanId}/resim")
+    public String getBase64(@PathVariable Integer ilanId){
+        return ilanlarService.getBase64(ilanId);
+    }
+
 
 
 }

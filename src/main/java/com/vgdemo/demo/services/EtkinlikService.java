@@ -23,4 +23,8 @@ public class EtkinlikService {
     public Etkinlik getOneEtkinlik(Integer etkinlikId) {
         return etkinlikRepo.findById(etkinlikId).orElse(null);
     }
+
+    public String getBase64(Integer etkinlikId) {
+        return etkinlikRepo.findById(etkinlikId).get().getResim();
+    }
 }

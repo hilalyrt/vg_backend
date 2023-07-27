@@ -37,4 +37,8 @@ public class IlanlarService {
     public Ilanlar ilanOlustur(Ilanlar ilan){
         return ilanlarRepo.save(ilan);
     }
+
+    public String getBase64(Integer ilanId) {
+        return ilanlarRepo.findById(ilanId).get().getResim();
+    }
 }
