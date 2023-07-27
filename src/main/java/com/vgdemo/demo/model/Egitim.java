@@ -23,4 +23,6 @@ public class Egitim {
         @JoinColumn(name = "kullaniciId")
         private Kullanici kullanici;
 
+        private String resim;
+
 }

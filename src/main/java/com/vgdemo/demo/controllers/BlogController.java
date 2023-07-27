@@ -28,4 +28,9 @@ public class BlogController {
     public Blog getOneBlog(@PathVariable Integer blogID){
         return blogService.getOneBlog(blogID);
     }
+
+    @GetMapping("/{blogId}/resim")
+    public String getBase64(@PathVariable Integer blogId){
+        return blogService.getBase64(blogId);
+    }
 }
