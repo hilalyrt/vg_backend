@@ -6,6 +6,8 @@ import com.vgdemo.demo.model.Yorum;
 import com.vgdemo.demo.repos.YorumRepo;
 import com.vgdemo.demo.requests.YorumCreateRequest;
 import com.vgdemo.demo.requests.YorumUpdateRequest;
+import com.vgdemo.demo.services.GonderiService;
+import com.vgdemo.demo.services.KullanıcıService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
