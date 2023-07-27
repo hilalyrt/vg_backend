@@ -17,7 +17,7 @@ public class Basvuru {
     private int basvuru_id;
 
     @ManyToOne
-    @JoinColumn(name="kullanici_id")
+    @JoinColumn(name="kullaniciId")
     private Kullanici kullanici_basvuran;
 
     @ManyToOne

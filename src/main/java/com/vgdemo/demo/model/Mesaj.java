@@ -17,11 +17,11 @@ public class Mesaj {
     private int mesaj_id;
 
     @OneToOne
-    @JoinColumn(name = "gonderen_id", referencedColumnName = "kullanici_id")
+    @JoinColumn(name = "gonderen_id", referencedColumnName = "kullaniciId")
     private Kullanici kullanici;
 
     @OneToOne
-    @JoinColumn(name = "alici_id", referencedColumnName = "kullanici_id")
+    @JoinColumn(name = "alici_id", referencedColumnName = "kullaniciId")
     private Kullanici kullanici2;
 
     private String metin;

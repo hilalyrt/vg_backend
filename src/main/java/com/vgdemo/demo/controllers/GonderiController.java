@@ -50,7 +50,16 @@ public class GonderiController {
     public void deleteOneGonderi(@PathVariable Long postId){
         gonderiService.deleteOneGonderiById(postId);
     }
+
+
+    @GetMapping("{postId}/resim")
+    public String getBase64(@PathVariable Long postId ){
+        return gonderiService.getBase64(postId);
+    }
 }
+
+
+
 
 
 /*

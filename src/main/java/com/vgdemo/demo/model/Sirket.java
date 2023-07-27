@@ -9,7 +9,7 @@ import lombok.Data;
 public class Sirket {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer sirket_id;
+   private int sirket_id;
     private String sirket_adi;
     private String adres;
     private String sirket_aciklamasi ;

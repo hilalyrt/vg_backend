@@ -29,7 +29,7 @@ public class KullaniciController {
     @GetMapping("/{userId}")
     public Kullanici getOneUser(@PathVariable Long userId){
         //custom exception
-        return kullanıcıService.getOneUser(userId);
+        return kullanıcıService.getOneUserById(userId);
     }
 
     @PutMapping("/{userId}")
@@ -45,5 +45,14 @@ return kullanıcıService.updateOneUser(userId,newUser);
         kullanıcıService.deleteById(userId);
     }
 
+    @PostMapping("/register")
+    public Kullanici registerKullanici(@RequestBody Kullanici kullanici){
+        return   kullanıcıService.register(kullanici);
+    }
+
+    @PostMapping("/login")
+    public boolean loginKullanici(@RequestParam String email, @RequestParam String sifre){
+        return kullanıcıService.login(email,sifre);
+    }
 
 }

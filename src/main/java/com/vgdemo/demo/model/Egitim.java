@@ -20,7 +20,7 @@ public class Egitim {
         private String hakkinda;
 
         @ManyToOne
-        @JoinColumn(name = "kullanici_id")
+        @JoinColumn(name = "kullaniciId")
         private Kullanici kullanici;
 
 }

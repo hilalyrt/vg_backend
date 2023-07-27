@@ -25,7 +25,7 @@ public class KullanıcıService {
         return kullaniciRepo.save(newUser);
     }
 
-    public Kullanici getOneUser(Long userId) {
+    public Kullanici getOneUserById(Long userId) {
 
         return  kullaniciRepo.findById(userId).orElse(null);
     }
@@ -46,4 +46,18 @@ public class KullanıcıService {
     public void deleteById(Long userId) {
         kullaniciRepo.deleteById(userId  );
     }
+
+
+    public Kullanici register(Kullanici kullanici){
+        return kullaniciRepo.save(kullanici);
+    }
+
+    public boolean login(String email,String sifre){
+        Kullanici kullanici=kullaniciRepo.findByEmail(email);
+        if(kullanici!=null &&kullanici.getSifre().equals(sifre)){
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -14,18 +14,17 @@ import lombok.NoArgsConstructor;
 public class Yorum {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int yorum_id;
+    private int yorumId;
 
     @ManyToOne
-    @JoinColumn(name="kullanici_id")
+    @JoinColumn(name="kullaniciId")
     private Kullanici kullanici;
 
 
     @ManyToOne
-    @JoinColumn(name="gonderi_id")
+    @JoinColumn(name="gonderiId")
     private Gonderi gonderi;
 
     private String yorum_metni;
     private String yorum_tarihi;
-    private int sayac;
 }
