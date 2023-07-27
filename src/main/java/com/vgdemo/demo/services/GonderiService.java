@@ -12,19 +12,19 @@ import java.util.Optional;
 
 @Service
 public class GonderiService {
-   private GonderiRepo gonderiRepo;
-   private KullanıcıService kullanıcıService;
+    private GonderiRepo gonderiRepo;
+    private KullanıcıService kullanıcıService;
 
 
-    public GonderiService(GonderiRepo gonderiRepo,KullanıcıService kullanıcıService) {
+    public GonderiService(GonderiRepo gonderiRepo, KullanıcıService kullanıcıService) {
         this.gonderiRepo = gonderiRepo;
-        this.kullanıcıService=kullanıcıService;
+        this.kullanıcıService = kullanıcıService;
     }
 
     public List<Gonderi> getAllGonderi(Optional<Long> userId) {
-        if(userId.isPresent())
-            return gonderiRepo.findByKullanicikullanici_id(userId.get());
-                    return gonderiRepo.findAll();
+        if (userId.isPresent())
+            return gonderiRepo.findByKullanicikullaniciId(userId.get());
+        return gonderiRepo.findAll();
     }
 
     public Gonderi getOneGonderiById(Long gonderiId) {
@@ -33,23 +33,17 @@ public class GonderiService {
     }
 
 
-
-
     public Gonderi createOneGonderi(GonderiCreateRequest newPostRequest) {
 
-Kullanici kullanici=kullanıcıService.getOneUserById(newPostRequest.getKullaniciId());
-if (kullanici==null)
-    return null;
-Gonderi toSave=new Gonderi();
-<<<<<<< Updated upstream:src/main/java/com/vgdemo/demo/service/GonderiService.java
-toSave.setGonderiId(newPostRequest.getGonderi_id());
-=======
-toSave.setGonderiId(newPostRequest.getGonderiId());
->>>>>>> Stashed changes:src/main/java/com/vgdemo/demo/services/GonderiService.java
-toSave.setIcerik(newPostRequest.getIcerik());
+        Kullanici kullanici = kullanıcıService.getOneUserById(newPostRequest.getKullaniciId());
+        if (kullanici == null)
+            return null;
+        Gonderi toSave = new Gonderi();
+        toSave.setGonderiId(newPostRequest.getGonderiId());
+        toSave.setIcerik(newPostRequest.getIcerik());
 
-toSave.setKullanici(kullanici);
-       return gonderiRepo.save(toSave);
+        toSave.setKullanici(kullanici);
+        return gonderiRepo.save(toSave);
     }
 
     public void deleteOneGonderiById(Long postId) {
@@ -58,18 +52,17 @@ toSave.setKullanici(kullanici);
 
     public Gonderi updateOneGonderiById(Long postId, GonderiUpdateRequest updateGonderiRequest) {
 
-    Optional<Gonderi> gonderi=gonderiRepo.findById(postId);
-    if(gonderi.isPresent()){
-        Gonderi toUpdate=gonderi.get();
-        toUpdate.setIcerik(updateGonderiRequest.getIcerik());
-        toUpdate.setIcerik(updateGonderiRequest.getIcerik());
-        gonderiRepo.save(toUpdate);
-        return  toUpdate;
-    }
-return null;
+        Optional<Gonderi> gonderi = gonderiRepo.findById(postId);
+        if (gonderi.isPresent()) {
+            Gonderi toUpdate = gonderi.get();
+            toUpdate.setIcerik(updateGonderiRequest.getIcerik());
+            toUpdate.setIcerik(updateGonderiRequest.getIcerik());
+            gonderiRepo.save(toUpdate);
+            return toUpdate;
+        }
+        return null;
 
     }
-
 
 
     public String getBase64(Long postId) {

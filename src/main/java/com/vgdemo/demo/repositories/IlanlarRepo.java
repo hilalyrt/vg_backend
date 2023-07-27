@@ -1,6 +1,5 @@
 package com.vgdemo.demo.repositories;
 
-<<<<<<< Updated upstream
 import com.vgdemo.demo.model.Ilanlar;
 import com.vgdemo.demo.model.Sirket;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,7 +11,3 @@ import java.util.List;
 public interface IlanlarRepo extends JpaRepository<Ilanlar, Integer> {
     List<Ilanlar> findBySirket(Sirket sirket);
 }
-=======
-public interface IlanlarRepo {
-}
->>>>>>> Stashed changes
