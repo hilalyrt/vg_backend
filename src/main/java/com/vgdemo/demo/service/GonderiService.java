@@ -37,14 +37,13 @@ public class GonderiService {
 
     public Gonderi createOneGonderi(GonderiCreateRequest newPostRequest) {
 
-Kullanici kullanici=kullanıcıService.getOneUser(newPostRequest.getKullaniciId());
+Kullanici kullanici=kullanıcıService.getOneUserById(newPostRequest.getKullaniciId());
 if (kullanici==null)
     return null;
 Gonderi toSave=new Gonderi();
-toSave.setGonderi_id(newPostRequest.getGonderi_id());
+toSave.setGonderiId(newPostRequest.getGonderi_id());
 toSave.setIcerik(newPostRequest.getIcerik());
-toSave.setMetin(newPostRequest.getMetin());
-toSave.setTarih(newPostRequest.getTarih());
+
 toSave.setKullanici(kullanici);
        return gonderiRepo.save(toSave);
     }
@@ -58,12 +57,18 @@ toSave.setKullanici(kullanici);
     Optional<Gonderi> gonderi=gonderiRepo.findById(postId);
     if(gonderi.isPresent()){
         Gonderi toUpdate=gonderi.get();
-        toUpdate.setMetin(updateGonderiRequest.getMetin());
+        toUpdate.setIcerik(updateGonderiRequest.getIcerik());
         toUpdate.setIcerik(updateGonderiRequest.getIcerik());
         gonderiRepo.save(toUpdate);
         return  toUpdate;
     }
 return null;
 
+    }
+
+
+
+    public String getBase64(Long postId) {
+        return gonderiRepo.findById(postId).get().getFotografGonderi();
     }
 }

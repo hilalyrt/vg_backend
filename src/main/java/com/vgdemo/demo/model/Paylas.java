@@ -17,10 +17,10 @@ public class Paylas {
     private int paylasma_id;
 
     @ManyToOne
-    @JoinColumn(name="gonderi_id")
+    @JoinColumn(name="gonderiId")
     private Gonderi gonderi;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "kullanici_id", referencedColumnName = "kullanici_id")
+    @JoinColumn(name = "kullaniciId", referencedColumnName = "kullaniciId")
     private Kullanici kullanici;
 }

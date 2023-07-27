@@ -16,7 +16,7 @@ public class Anket {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int anket_id;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "kullanici_id", referencedColumnName = "kullanici_id")
+    @JoinColumn(name = "kullaniciId", referencedColumnName = "kullaniciId")
     private Kullanici kullanici;
     private String sorular;
 }

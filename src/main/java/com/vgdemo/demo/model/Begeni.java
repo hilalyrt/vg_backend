@@ -16,14 +16,14 @@ public class Begeni {
 
     private int begeni_id;
 
+
     @ManyToOne
-    //@JoinColumn(name= "kullanici_id");
+    @JoinColumn(name = "kullaniciId")
     private Kullanici kullanici;
 
     @ManyToOne
-    //@JoinColumn(name="gonderi_id");
+    @JoinColumn(name = "gonderiId")
     private Gonderi gonderi;
 
 
-    private int sayac;
 }

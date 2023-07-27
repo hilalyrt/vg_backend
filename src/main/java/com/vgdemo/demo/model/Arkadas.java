@@ -16,7 +16,7 @@ public class Arkadas {
 
 
     @ManyToOne
-    @JoinColumn(name = "kullanici_id", referencedColumnName = "kullanici_id")
+    @JoinColumn(name = "kullaniciId", referencedColumnName = "kullaniciId")
     private Kullanici kullanici2;
 
     @Temporal(TemporalType.DATE)
