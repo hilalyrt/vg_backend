@@ -12,17 +12,16 @@ public class Egitim {
         private int egitim_id;
         private  String okul;
         private double ortalama;
+        private String sınıf;
         private String fakulte ;
         private String bolum;
-        private String egitim_turu;
-        private String baslama_tarihi;
-        private String bitis_tarihi;
+
+        @Column (length = 500)
         private String hakkinda;
 
         @ManyToOne
         @JoinColumn(name = "kullaniciId")
         private Kullanici kullanici;
 
-        private String resim;
 
 }

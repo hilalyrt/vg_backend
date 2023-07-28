@@ -24,7 +24,7 @@ public class EtkinlikController {
         return etkinlikService.getAllEtkinliks();
     }
 
-  @GetMapping("/{etlinlikId}")
+  @GetMapping("/{etkinlikId}")
         public Etkinlik getEtkinlikById(@PathVariable Integer etlinlikId){
             return etkinlikService.getOneEtkinlik(etlinlikId);
         }

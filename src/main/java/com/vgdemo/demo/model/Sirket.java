@@ -11,7 +11,7 @@ import java.util.Set;
 public class Sirket {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private int sirket_id;
+    private int sirket_id;
     private String sirket_adi;
     private String adres;
     private String sirket_aciklamasi ;
