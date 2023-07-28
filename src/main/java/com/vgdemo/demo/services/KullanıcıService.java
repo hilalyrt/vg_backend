@@ -60,4 +60,8 @@ public class KullanıcıService {
         return false;
     }
 
+    public String getBase64(Long postId) {
+        return kullaniciRepo.findById(postId).get().getFotografKullanici();
+    }
+
 }

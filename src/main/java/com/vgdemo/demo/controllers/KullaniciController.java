@@ -33,7 +33,7 @@ public class KullaniciController {
     @PutMapping("/{userId}")
     public Kullanici updateOneUser(@PathVariable Long userId,@RequestBody Kullanici newUser){
 
-return kullanıcıService.updateOneUser(userId,newUser);
+    return kullanıcıService.updateOneUser(userId,newUser);
 
 
     }
@@ -48,9 +48,17 @@ return kullanıcıService.updateOneUser(userId,newUser);
         return   kullanıcıService.register(kullanici);
     }
 
-    @PostMapping("/login")
+
+
+    @GetMapping("/login")
     public boolean loginKullanici(@RequestParam String email, @RequestParam String sifre){
-        return kullanıcıService.login(email,sifre);
+        return kullanıcıService.login(email, sifre);
+    }
+
+
+    @GetMapping("{postId}/resim")
+    public String getBase64(@PathVariable Long postId ){
+        return kullanıcıService.getBase64(postId);
     }
 
 }
