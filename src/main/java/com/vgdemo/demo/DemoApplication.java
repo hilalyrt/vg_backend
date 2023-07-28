@@ -14,7 +14,7 @@ public class DemoApplication {
 
 		String url =  "jdbc:mysql://localhost:3306/vizyoner";
 		String user = "root";
-		String password = "12345678";
+		String password = "root1";
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");

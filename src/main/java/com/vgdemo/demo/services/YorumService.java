@@ -1,9 +1,10 @@
-package com.vgdemo.demo.service;
+package com.vgdemo.demo.services;
 
 import com.vgdemo.demo.model.Gonderi;
 import com.vgdemo.demo.model.Kullanici;
 import com.vgdemo.demo.model.Yorum;
-import com.vgdemo.demo.repos.YorumRepo;
+import com.vgdemo.demo.repositories.YorumRepo;
+import com.vgdemo.demo.repositories.YorumRepo;
 import com.vgdemo.demo.requests.YorumCreateRequest;
 import com.vgdemo.demo.requests.YorumUpdateRequest;
 import com.vgdemo.demo.services.GonderiService;

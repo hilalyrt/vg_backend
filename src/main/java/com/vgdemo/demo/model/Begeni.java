@@ -14,7 +14,7 @@ public class Begeni {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 
-    private int begeni_id;
+    private int begeniId;
 
 
     @ManyToOne
@@ -25,5 +25,6 @@ public class Begeni {
     @ManyToOne
     @JoinColumn(name = "gonderiId")
     private Gonderi gonderi;
+
 
 }

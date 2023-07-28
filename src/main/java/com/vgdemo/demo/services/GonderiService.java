@@ -23,7 +23,7 @@ public class GonderiService {
 
     public List<Gonderi> getAllGonderi(Optional<Long> userId) {
         if (userId.isPresent())
-            return gonderiRepo.findByKullanicikullaniciId(userId.get());
+            return gonderiRepo.findByKullaniciKullaniciId(userId.get());
         return gonderiRepo.findAll();
     }
 

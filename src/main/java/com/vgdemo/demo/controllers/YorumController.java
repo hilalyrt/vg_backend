@@ -3,7 +3,7 @@ package com.vgdemo.demo.controllers;
 import com.vgdemo.demo.model.Yorum;
 import com.vgdemo.demo.requests.YorumCreateRequest;
 import com.vgdemo.demo.requests.YorumUpdateRequest;
-import com.vgdemo.demo.service.YorumService;
+import com.vgdemo.demo.services.YorumService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

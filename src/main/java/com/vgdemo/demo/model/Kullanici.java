@@ -26,13 +26,8 @@ public class Kullanici {
 
 
 
-
-    @OneToMany(mappedBy = "kullanici2")
-    private List<Arkadas> arkadaslar2;
-
     private String cinsiyet;
     private String uyruk;
     private String adres;
-    private int baglanti_sayisi;
-    private int takip_sayisi;
+
 }
