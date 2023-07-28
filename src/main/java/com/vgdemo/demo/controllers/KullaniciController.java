@@ -1,8 +1,9 @@
 package com.vgdemo.demo.controllers;
 
 import com.vgdemo.demo.model.Kullanici;
-import com.vgdemo.demo.repos.KullaniciRepo;
-import com.vgdemo.demo.service.KullanıcıService;
+import com.vgdemo.demo.repositories.KullaniciRepo;
+import com.vgdemo.demo.services.KullanıcıService;
+import com.vgdemo.demo.services.KullanıcıService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
