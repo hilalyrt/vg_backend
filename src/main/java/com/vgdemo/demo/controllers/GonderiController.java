@@ -56,12 +56,9 @@ public class GonderiController {
     public String getBase64(@PathVariable Long postId ){
         return gonderiService.getBase64(postId);
     }
+
+
 }
-
-
-
-
-
 /*
 
 

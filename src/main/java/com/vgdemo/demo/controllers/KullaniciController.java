@@ -13,7 +13,8 @@ import java.util.Optional;
 public class KullaniciController {
 
     private KullanıcıService kullanıcıService;
-    public KullaniciController(KullanıcıService kullanıcıService){
+
+    public KullaniciController(KullanıcıService kullanıcıService) {
         this.kullanıcıService = kullanıcıService;
     }
 
@@ -21,38 +22,44 @@ public class KullaniciController {
     public List<Kullanici> getAllUsers() {
         return kullanıcıService.getAllUsers();
     }
+
     @PostMapping
-    public Kullanici createUser(@RequestBody Kullanici newUser){
+    public Kullanici createUser(@RequestBody Kullanici newUser) {
         return kullanıcıService.saveOneUser(newUser);
     }
 
     @GetMapping("/{userId}")
-    public Kullanici getOneUser(@PathVariable Long userId){
+    public Kullanici getOneUser(@PathVariable Long userId) {
         //custom exception
         return kullanıcıService.getOneUserById(userId);
     }
 
     @PutMapping("/{userId}")
-    public Kullanici updateOneUser(@PathVariable Long userId,@RequestBody Kullanici newUser){
+    public Kullanici updateOneUser(@PathVariable Long userId, @RequestBody Kullanici newUser) {
 
-return kullanıcıService.updateOneUser(userId,newUser);
+        return kullanıcıService.updateOneUser(userId, newUser);
 
 
     }
 
     @DeleteMapping("/{userId}")
-    public void deleteOneUser(@PathVariable Long userId){
+    public void deleteOneUser(@PathVariable Long userId) {
         kullanıcıService.deleteById(userId);
     }
 
     @PostMapping("/register")
-    public Kullanici registerKullanici(@RequestBody Kullanici kullanici){
-        return   kullanıcıService.register(kullanici);
+    public Kullanici registerKullanici(@RequestBody Kullanici kullanici) {
+
+        return kullanıcıService.register(kullanici);
     }
 
-    @PostMapping("/login")
-    public boolean loginKullanici(@RequestParam String email, @RequestParam String sifre){
-        return kullanıcıService.login(email,sifre);
-    }
 
+
+
+
+    @GetMapping("/login")
+    public boolean loginKullanici(@RequestParam String email, @RequestParam String sifre) {
+        return kullanıcıService.login(email, sifre);
+
+    }
 }
