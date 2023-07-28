@@ -1,17 +1,20 @@
 package com.vgdemo.demo.controllers;
 
 import com.vgdemo.demo.model.Kullanici;
-import com.vgdemo.demo.services.KullanıcıService;
+import com.vgdemo.demo.repos.KullaniciRepo;
+import com.vgdemo.demo.service.KullanıcıService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
 public class KullaniciController {
 
     private KullanıcıService kullanıcıService;
-    public KullaniciController(KullanıcıService kullanıcıService){
+
+    public KullaniciController(KullanıcıService kullanıcıService) {
         this.kullanıcıService = kullanıcıService;
     }
 
@@ -20,45 +23,42 @@ public class KullaniciController {
         return kullanıcıService.getAllUsers();
     }
     @PostMapping
-    public Kullanici createUser(@RequestBody Kullanici newUser){
+    public Kullanici createUser(@RequestBody Kullanici newUser) {
         return kullanıcıService.saveOneUser(newUser);
     }
 
     @GetMapping("/{userId}")
-    public Kullanici getOneUser(@PathVariable Long userId){
+    public Kullanici getOneUser(@PathVariable Long userId) {
         //custom exception
         return kullanıcıService.getOneUserById(userId);
     }
 
     @PutMapping("/{userId}")
-    public Kullanici updateOneUser(@PathVariable Long userId,@RequestBody Kullanici newUser){
+    public Kullanici updateOneUser(@PathVariable Long userId, @RequestBody Kullanici newUser) {
 
-    return kullanıcıService.updateOneUser(userId,newUser);
+        return kullanıcıService.updateOneUser(userId, newUser);
 
 
     }
 
     @DeleteMapping("/{userId}")
-    public void deleteOneUser(@PathVariable Long userId){
+    public void deleteOneUser(@PathVariable Long userId) {
         kullanıcıService.deleteById(userId);
     }
 
     @PostMapping("/register")
-    public Kullanici registerKullanici(@RequestBody Kullanici kullanici){
-        return   kullanıcıService.register(kullanici);
+    public Kullanici registerKullanici(@RequestBody Kullanici kullanici) {
+
+        return kullanıcıService.register(kullanici);
     }
+
+
 
 
 
     @GetMapping("/login")
-    public boolean loginKullanici(@RequestParam String email, @RequestParam String sifre){
+    public boolean loginKullanici(@RequestParam String email, @RequestParam String sifre) {
         return kullanıcıService.login(email, sifre);
+
     }
-
-
-    @GetMapping("{postId}/resim")
-    public String getBase64(@PathVariable Long postId ){
-        return kullanıcıService.getBase64(postId);
-    }
-
 }
