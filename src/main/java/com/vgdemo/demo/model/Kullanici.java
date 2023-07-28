@@ -26,8 +26,11 @@ public class Kullanici {
 
 
 
+
+
     private String cinsiyet;
-    private String uyruk;
     private String adres;
+
+
 
 }
