@@ -1,9 +1,10 @@
 CREATE TABLE GRUPLAR{
 grup_id int,
+grup_adi varchar(150),
 uye_id int,
 olusturan_id int,
 grup_mevcut int,
-sirket_hakkında varchar(1500),
+grup_hakkında varchar(1500),
 olusturma_tarihi DATE
 
 PRIMARY KEY grup_id
