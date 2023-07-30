@@ -14,11 +14,16 @@ import lombok.NoArgsConstructor;
 public class Basvuru {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int basvuru_id;
+    private Long basvuru_id;
 
     @ManyToOne
+<<<<<<< Updated upstream
     @JoinColumn(name="kullanici_id")
     private Kullanici kullanici_basvuran;
+=======
+    @JoinColumn(name="kullaniciId")
+    private Kullanici kullanici;
+>>>>>>> Stashed changes
 
     @ManyToOne
     @JoinColumn(name="ilan_id")

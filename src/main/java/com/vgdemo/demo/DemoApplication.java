@@ -12,7 +12,11 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 
+<<<<<<< Updated upstream
 		String url =  "jdbc:mysql://localhost:3306/vg_db";
+=======
+		String url =  "jdbc:mysql://127.0.0.1:3306/vizyoner";
+>>>>>>> Stashed changes
 		String user = "root";
 		String password = "root1";
 
