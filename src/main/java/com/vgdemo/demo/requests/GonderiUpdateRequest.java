@@ -5,10 +5,15 @@ import lombok.Data;
 @Data
 public class GonderiUpdateRequest {
 
+
     private String icerik;
     private String metin;
     private int sayacBegeni;
     private int sayacYorum;
+    String fotograf_gonderi;
+    int sayac_begeni;
+    int sayac_yorum;
+
 
     // Getter and Setter for sayacBegeni
     public int getSayacBegeni() {

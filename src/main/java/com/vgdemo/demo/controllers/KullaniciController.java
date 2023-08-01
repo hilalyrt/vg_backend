@@ -1,13 +1,13 @@
 package com.vgdemo.demo.controllers;
 
 import com.vgdemo.demo.model.Kullanici;
-import com.vgdemo.demo.repositories.KullaniciRepo;
+import com.vgdemo.demo.requests.KullaniciUpdateRequest;
 import com.vgdemo.demo.services.KullanıcıService;
-import com.vgdemo.demo.services.KullanıcıService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -23,24 +23,34 @@ public class KullaniciController {
     public List<Kullanici> getAllUsers() {
         return kullanıcıService.getAllUsers();
     }
+
     @PostMapping
     public Kullanici createUser(@RequestBody Kullanici newUser) {
         return kullanıcıService.saveOneUser(newUser);
     }
 
-    @GetMapping("/{userId}")
+
+    @GetMapping("/userId/{userId}")
     public Kullanici getOneUser(@PathVariable Long userId) {
         //custom exception
         return kullanıcıService.getOneUserById(userId);
     }
 
-    @PutMapping("/{userId}")
-    public Kullanici updateOneUser(@PathVariable Long userId, @RequestBody Kullanici newUser) {
 
-        return kullanıcıService.updateOneUser(userId, newUser);
+    @GetMapping("/email/{email}")
+    public Kullanici getOneUserEmail(@PathVariable String email) {
+        return kullanıcıService.getOneUserByEmail(email);
+    }
 
+
+    @PutMapping("/email/{email}")
+    public ResponseEntity<Void> updateOneUserEmail(@PathVariable String email, @RequestBody KullaniciUpdateRequest newUser) {
+        Kullanici user = kullanıcıService.updateOneUserEmail(email, newUser);
+        if (user != null) return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 
     }
+
 
     @DeleteMapping("/{userId}")
     public void deleteOneUser(@PathVariable Long userId) {
@@ -54,12 +64,9 @@ public class KullaniciController {
     }
 
 
-
-
-
-    @GetMapping("/login")
-    public boolean loginKullanici(@RequestParam String email, @RequestParam String sifre) {
-        return kullanıcıService.login(email, sifre);
+    @PostMapping("/login")
+    public boolean loginKullanici(@RequestBody Kullanici kullanici) {
+        return kullanıcıService.login(kullanici.getEmail(), kullanici.getSifre());
 
     }
 }

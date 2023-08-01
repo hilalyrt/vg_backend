@@ -2,6 +2,7 @@ package com.vgdemo.demo.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.List;
 
@@ -16,7 +17,11 @@ public class Kullanici {
     private String ad;
     private String soyad;
     private String email;
+
+
     private String sifre;
+
+
     private String dogum_tarihi;
     private String fotograf;
 

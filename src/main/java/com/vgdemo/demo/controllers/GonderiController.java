@@ -40,7 +40,7 @@ public class GonderiController {
     }
 
 
-    @PutMapping("{postId}")
+    @PutMapping("/{postId}")
     public Gonderi updateOneGonderi(@PathVariable Long postId, @RequestBody GonderiUpdateRequest updateGonderiRequest){
         return gonderiService.updateOneGonderiById(postId,updateGonderiRequest);
     }
@@ -65,6 +65,8 @@ public class GonderiController {
     public void commentOnPost(@PathVariable Long postId) {
         gonderiService.increaseCommentsCount(postId);
     }
+
+
 
 }
 /*

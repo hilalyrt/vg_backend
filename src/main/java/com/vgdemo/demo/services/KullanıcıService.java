@@ -2,6 +2,7 @@ package com.vgdemo.demo.services;
 
 import com.vgdemo.demo.model.Kullanici;
 import com.vgdemo.demo.repositories.KullaniciRepo;
+import com.vgdemo.demo.requests.KullaniciUpdateRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,11 +30,23 @@ public class KullanıcıService {
         return  kullaniciRepo.findById(userId).orElse(null);
     }
 
-    public Kullanici updateOneUser(Long userId, Kullanici newUser) {
-        Optional<Kullanici> user = kullaniciRepo.findById(userId);
+    public Kullanici getOneUserByEmail(String email){
+        return kullaniciRepo.findByEmail(email);
+    }
+
+
+
+    public Kullanici updateOneUserEmail(String email, KullaniciUpdateRequest newUser) {
+        Optional<Kullanici> user = kullaniciRepo.findByemail(email);
         if(user.isPresent()){
             Kullanici foundUser= user.get();
             foundUser.setAd(newUser.getAd());
+            foundUser.setSoyad(newUser.getSoyad());
+            foundUser.setEmail(newUser.getEmail());
+            foundUser.setDogum_tarihi(newUser.getDogum_tarihi());
+            foundUser.setCinsiyet(newUser.getCinsiyet());
+            foundUser.setAdres(newUser.getAdres());
+            foundUser.setFotograf(newUser.getFotograf());
             kullaniciRepo.save(foundUser);
             return  foundUser;
 
@@ -59,8 +72,10 @@ public class KullanıcıService {
         return false;
     }
 
+
     public String getBase64(Long postId) {
         return kullaniciRepo.findById(postId).get().getFotograf();
     }
+
 
 }

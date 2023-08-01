@@ -10,4 +10,5 @@ public class YorumCreateRequest {
     Long kullaniciId;
     Long gonderiId;
     String yorum_tarihi;
+    String email;
 }
