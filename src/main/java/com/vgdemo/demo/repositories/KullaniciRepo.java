@@ -10,5 +10,4 @@ public interface KullaniciRepo extends JpaRepository<Kullanici,Long>, CrudReposi
     Kullanici findByEmail(String email);
 
 
-
 }

@@ -27,4 +27,5 @@ public class Gonderi {
     @Column(length = 50000000)
     private  String fotografGonderi;
 
+
 }
