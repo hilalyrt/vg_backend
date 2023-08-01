@@ -2,7 +2,7 @@ package com.vgdemo.demo.services;
 
 import com.vgdemo.demo.model.Gruplar;
 import com.vgdemo.demo.model.Kullanici;
-import com.vgdemo.demo.repos.KullaniciRepo;
+import com.vgdemo.demo.repositories.KullaniciRepo;
 import com.vgdemo.demo.repositories.GrupRepo;
 import com.vgdemo.demo.wrappers.GrupOlusturWrapper;
 import org.springframework.stereotype.Service;

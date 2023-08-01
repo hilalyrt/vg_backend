@@ -1,7 +1,7 @@
 package com.vgdemo.demo.controllers;
 
 import com.vgdemo.demo.model.*;
-import com.vgdemo.demo.service.KullanıcıService;
+import com.vgdemo.demo.services.KullanıcıService;
 import com.vgdemo.demo.services.EgitimService;
 import com.vgdemo.demo.wrappers.EgitimWrapper;
 import com.vgdemo.demo.wrappers.SirketLogoWrapper;

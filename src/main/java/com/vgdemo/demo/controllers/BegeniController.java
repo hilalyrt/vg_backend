@@ -3,9 +3,6 @@ package com.vgdemo.demo.controllers;
 import com.vgdemo.demo.model.Begeni;
 import com.vgdemo.demo.requests.BegeniCreateRequest;
 import com.vgdemo.demo.services.BegeniService;
-import com.vgdemo.demo.services.GonderiService;
-import com.vgdemo.demo.services.KullanıcıService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

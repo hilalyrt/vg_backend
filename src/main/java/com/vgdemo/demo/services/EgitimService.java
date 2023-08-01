@@ -3,7 +3,7 @@ package com.vgdemo.demo.services;
 import com.vgdemo.demo.model.Egitim;
 import com.vgdemo.demo.model.Kullanici;
 import com.vgdemo.demo.model.SirketLogo;
-import com.vgdemo.demo.repos.KullaniciRepo;
+import com.vgdemo.demo.repositories.KullaniciRepo;
 import com.vgdemo.demo.repositories.EgitimRepo;
 import com.vgdemo.demo.wrappers.EgitimWrapper;
 import com.vgdemo.demo.wrappers.SirketLogoWrapper;

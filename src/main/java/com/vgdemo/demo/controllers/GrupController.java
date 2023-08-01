@@ -1,7 +1,7 @@
 package com.vgdemo.demo.controllers;
 
 import com.vgdemo.demo.model.Gruplar;
-import com.vgdemo.demo.service.KullanıcıService;
+import com.vgdemo.demo.services.KullanıcıService;
 import com.vgdemo.demo.services.GruplarService;
 import com.vgdemo.demo.wrappers.GrupOlusturWrapper;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.vgdemo.demo.service;
+package com.vgdemo.demo.services;
 
 import com.vgdemo.demo.model.Gonderi;
 import com.vgdemo.demo.model.Kullanici;
@@ -75,10 +75,20 @@ return null;
         return gonderiRepo.findById(postId).get().getFotografGonderi();
     }
 
-    public void increaseYorumCount(Long id) {
+    public void increaseCommentsCount(Long id) {
         Gonderi gonderi = gonderiRepo.findById(id).orElse(null);
         if (gonderi != null) {
             gonderi.setSayacYorum(gonderi.getSayacYorum()+1);
+            gonderiRepo.save(gonderi);
+        }
+    }
+
+
+    public void increaseLikesCount(Long postId) {
+        Gonderi gonderi = gonderiRepo.findById(postId).orElse(null);
+        if (gonderi!=null) {
+            gonderi.setSayacBegeni((gonderi.getSayacBegeni())+1);
+
             gonderiRepo.save(gonderi);
         }
     }
