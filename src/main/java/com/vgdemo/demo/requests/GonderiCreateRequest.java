@@ -7,9 +7,11 @@ public class GonderiCreateRequest {
 
 
      int gonderi_id;
-     String metin;
      String icerik;
-     String tarih;
-    Long kullaniciId;
+    Long kullanici_id;
+    String fotografGonderi;
+    int sayac_begeni=0;
+    int sayac_yorum=0;
+
 
 }

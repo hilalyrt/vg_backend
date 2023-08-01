@@ -3,6 +3,7 @@ package com.vgdemo.demo.controllers;
 import com.vgdemo.demo.model.Gonderi;
 import com.vgdemo.demo.requests.GonderiCreateRequest;
 import com.vgdemo.demo.requests.GonderiUpdateRequest;
+import com.vgdemo.demo.requests.KullaniciCreateRequest;
 import com.vgdemo.demo.service.GonderiService;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,7 +42,7 @@ public class GonderiController {
     }
 
 
-    @PutMapping("{postId}")
+    @PutMapping("/{postId}")
     public Gonderi updateOneGonderi(@PathVariable Long postId, @RequestBody GonderiUpdateRequest updateGonderiRequest){
         return gonderiService.updateOneGonderiById(postId,updateGonderiRequest);
     }
@@ -57,6 +58,11 @@ public class GonderiController {
         return gonderiService.getBase64(postId);
     }
 
+
+    @PostMapping("/yorum/{id}")
+    public void likePost(@PathVariable Long id) {
+        gonderiService.increaseYorumCount(id);
+    }
 
 }
 /*

@@ -23,10 +23,10 @@ public class Gonderi {
     private Kullanici kullanici;
 
     private String icerik;
-    private Date tarih;
     private int sayacBegeni;
     private int sayacYorum;
     @Column(length = 50000000)
     private  String fotografGonderi;
+
 
 }

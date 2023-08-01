@@ -37,14 +37,16 @@ public class GonderiService {
 
     public Gonderi createOneGonderi(GonderiCreateRequest newPostRequest) {
 
-Kullanici kullanici=kullanıcıService.getOneUserById(newPostRequest.getKullaniciId());
-if (kullanici==null)
-    return null;
-Gonderi toSave=new Gonderi();
-toSave.setGonderiId(newPostRequest.getGonderi_id());
-toSave.setIcerik(newPostRequest.getIcerik());
-
-toSave.setKullanici(kullanici);
+    Kullanici kullanici=kullanıcıService.getOneUserById(newPostRequest.getKullanici_id());
+    if (kullanici==null)
+              return null;
+    Gonderi toSave=new Gonderi();
+    toSave.setGonderiId(newPostRequest.getGonderi_id());
+    toSave.setIcerik(newPostRequest.getIcerik());
+    toSave.setFotografGonderi(newPostRequest.getFotografGonderi());
+    toSave.setSayacYorum(newPostRequest.getSayac_yorum());
+    toSave.setSayacBegeni(newPostRequest.getSayac_begeni());
+    toSave.setKullanici(kullanici);
        return gonderiRepo.save(toSave);
     }
 
@@ -58,7 +60,9 @@ toSave.setKullanici(kullanici);
     if(gonderi.isPresent()){
         Gonderi toUpdate=gonderi.get();
         toUpdate.setIcerik(updateGonderiRequest.getIcerik());
-        toUpdate.setIcerik(updateGonderiRequest.getIcerik());
+       toUpdate.setFotografGonderi(updateGonderiRequest.getFotograf_gonderi());
+       toUpdate.setSayacBegeni(updateGonderiRequest.getSayac_begeni());
+       toUpdate.setSayacYorum(updateGonderiRequest.getSayac_yorum());
         gonderiRepo.save(toUpdate);
         return  toUpdate;
     }
@@ -66,9 +70,15 @@ return null;
 
     }
 
-
-
     public String getBase64(Long postId) {
         return gonderiRepo.findById(postId).get().getFotografGonderi();
+    }
+
+    public void increaseYorumCount(Long id) {
+        Gonderi gonderi = gonderiRepo.findById(id).orElse(null);
+        if (gonderi != null) {
+            gonderi.setSayacYorum(gonderi.getSayacYorum()+1);
+            gonderiRepo.save(gonderi);
+        }
     }
 }
