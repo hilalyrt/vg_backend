@@ -14,11 +14,11 @@ import lombok.NoArgsConstructor;
 public class Basvuru {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int basvuru_id;
+    private Long basvuru_id;
 
     @ManyToOne
     @JoinColumn(name="kullaniciId")
-    private Kullanici kullanici_basvuran;
+    private Kullanici kullanici;
 
     @ManyToOne
     @JoinColumn(name="ilan_id")
