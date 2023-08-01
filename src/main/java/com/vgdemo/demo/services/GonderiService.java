@@ -56,7 +56,8 @@ public class GonderiService {
         if (gonderi.isPresent()) {
             Gonderi toUpdate = gonderi.get();
             toUpdate.setIcerik(updateGonderiRequest.getIcerik());
-            toUpdate.setIcerik(updateGonderiRequest.getIcerik());
+            toUpdate.setSayacBegeni(updateGonderiRequest.getSayacBegeni());
+            toUpdate.setSayacYorum(updateGonderiRequest.getSayacYorum());
             gonderiRepo.save(toUpdate);
             return toUpdate;
         }
@@ -67,5 +68,21 @@ public class GonderiService {
 
     public String getBase64(Long postId) {
         return gonderiRepo.findById(postId).get().getFotografGonderi();
+    }
+
+    public void increaseLikesCount(Long postId) {
+        Gonderi gonderi = gonderiRepo.findById(postId).orElse(null);
+        if (gonderi!=null) {
+            gonderi.setSayacBegeni((gonderi.getSayacBegeni())+1);
+
+            gonderiRepo.save(gonderi);
+        }
+    }
+    public void increaseCommentsCount(Long postId) {
+        Gonderi gonderi = gonderiRepo.findById(postId).orElse(null);
+        if (gonderi!=null) {
+            gonderi.setSayacYorum(gonderi.getSayacYorum() + 1);
+            gonderiRepo.save(gonderi);
+        }
     }
 }

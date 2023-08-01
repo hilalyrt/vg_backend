@@ -56,6 +56,15 @@ public class GonderiController {
         return gonderiService.getBase64(postId);
     }
 
+    @PostMapping("/{postId}/like")
+    public void likePost(@PathVariable Long postId) {
+        gonderiService.increaseLikesCount(postId);
+    }
+
+    @PostMapping("/{postId}/comment")
+    public void commentOnPost(@PathVariable Long postId) {
+        gonderiService.increaseCommentsCount(postId);
+    }
 
 }
 /*
