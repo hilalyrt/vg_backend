@@ -47,7 +47,6 @@ public class IlanlarController {
         if (sirket == null) {
             return ResponseEntity.notFound().build();
         }
-
         ilan.setSirket(sirket);
         Ilanlar yeniIlan = ilanlarService.ilanOlustur(ilan);
         return ResponseEntity.status(HttpStatus.CREATED).body(yeniIlan);

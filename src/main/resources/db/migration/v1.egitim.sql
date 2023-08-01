@@ -3,11 +3,9 @@ CREATE TABLE EGITIM (
   okul VARCHAR(50),
   fakulte VARCHAR(50),
   bolum VARCHAR(50),
-  egitim_turu VARCHAR(50),
-  baslama_tarihi DATE,
-  bitis_tarihi DATE,
   hakkinda VARCHAR(500),
   kullanici_id INT,
+  sınıf varchar(20),
   PRIMARY KEY (egitim_id),
   FOREIGN KEY (sirket_id) REFERENCES KULLANICI(kullanici_id)
 );

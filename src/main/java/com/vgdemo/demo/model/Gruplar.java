@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,20 +16,29 @@ public class Gruplar {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int grup_id;
 
+    private String grupAdi;
+
     @ManyToMany
     @JoinTable(
-            name="grup_id",
-            joinColumns=@JoinColumn(name="uye_id"),
-            inverseJoinColumns = @JoinColumn(name = "grup_id")
+            name = "GRUPLAR_UYELER",
+            joinColumns = @JoinColumn(name = "grup_id"),
+            inverseJoinColumns = @JoinColumn(name = "kullanici_id")
     )
+    private List<Kullanici> uyeler;
 
     @ManyToOne
     @JoinColumn(name= "olusturan_id")
-    private Gruplar Grup_olusturan;
+    private Kullanici grupOlusturan;
 
 
     private int grup_mevcut;
-    private String sirket_hakkında;
+    private String grup_hakkında;
     private String olusturulma_tarihi;
+
+
+    public void grubaKullaniciEkle(Kullanici kullanici) {
+        uyeler.add(kullanici);
+    }
+
 
 }

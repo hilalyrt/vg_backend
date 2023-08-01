@@ -26,7 +26,6 @@ public class KullanıcıService {
     }
 
     public Kullanici getOneUserById(Long userId) {
-
         return  kullaniciRepo.findById(userId).orElse(null);
     }
 
