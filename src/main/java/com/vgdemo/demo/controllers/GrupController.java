@@ -1,6 +1,7 @@
 package com.vgdemo.demo.controllers;
 
 import com.vgdemo.demo.model.Gruplar;
+import com.vgdemo.demo.model.Kullanici;
 import com.vgdemo.demo.services.KullanıcıService;
 import com.vgdemo.demo.services.GruplarService;
 import com.vgdemo.demo.wrappers.GrupOlusturWrapper;
@@ -32,6 +33,11 @@ public class GrupController {
         return gruplarService.getGrupByKullaniciId(kullaniciId);
     }
 
+    @GetMapping("/uyeler/{grupId}")
+    public List<Integer> getAllUye(@PathVariable Integer grupId){
+        return gruplarService.getAllUye(grupId);
+    }
+
     @PostMapping("{grupId}/uye-ekle/{kullaniciId}")
     public Gruplar addUserToGroup(@PathVariable int grupId, @PathVariable Long kullaniciId) {
         return gruplarService.uyeEkle(grupId, kullaniciId);
@@ -41,9 +47,5 @@ public class GrupController {
         public Gruplar grupOlustur(@PathVariable Long olusturanId, @RequestBody GrupOlusturWrapper grupWrapper){
         return gruplarService.grupOlustur(olusturanId, grupWrapper);
         }
-
-
-
-
 
 }

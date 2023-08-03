@@ -32,6 +32,11 @@ public class GonderiController {
         return gonderiService.getOneGonderiById(gonderiId);
     }
 
+    @GetMapping("/grup-gonderileri")
+    public List<Gonderi> getGrupGonderileri(@RequestParam List<Long> kullaniciIdleri){
+        return gonderiService.getGrupGonderileri(kullaniciIdleri);
+    }
+
 
     @PostMapping
     public Gonderi createOneGonderi(@RequestBody GonderiCreateRequest newPostRequest){

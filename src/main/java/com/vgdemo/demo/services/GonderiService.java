@@ -5,9 +5,10 @@ import com.vgdemo.demo.model.Kullanici;
 import com.vgdemo.demo.repositories.GonderiRepo;
 import com.vgdemo.demo.requests.GonderiCreateRequest;
 import com.vgdemo.demo.requests.GonderiUpdateRequest;
-import com.vgdemo.demo.services.KullanıcıService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -91,5 +92,20 @@ return null;
 
             gonderiRepo.save(gonderi);
         }
+    }
+
+    public List<Gonderi> getGrupGonderileri(List<Long> kullaniciIdleri) {
+
+        List<Gonderi> grupPostları = new ArrayList<>();
+
+        for (Long id : kullaniciIdleri){
+
+            List<Gonderi> kullanicininGonderileri = this.getAllGonderi(id.describeConstable());
+
+            for(Gonderi post : kullanicininGonderileri){
+                grupPostları.add(post);
+            }
+        }
+        return grupPostları;
     }
 }

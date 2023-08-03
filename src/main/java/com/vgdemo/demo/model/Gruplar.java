@@ -39,6 +39,4 @@ public class Gruplar {
     public void grubaKullaniciEkle(Kullanici kullanici) {
         uyeler.add(kullanici);
     }
-
-
 }

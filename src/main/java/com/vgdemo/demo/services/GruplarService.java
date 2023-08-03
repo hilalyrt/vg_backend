@@ -7,6 +7,7 @@ import com.vgdemo.demo.repositories.GrupRepo;
 import com.vgdemo.demo.wrappers.GrupOlusturWrapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,7 +40,7 @@ public class GruplarService {
             Kullanici uye = kullanici.get();
 
             grup.grubaKullaniciEkle(uye);
-            grup.setGrup_mevcut(grup.getGrup_mevcut()+1);
+            grup.setGrup_mevcut(grup.getGrup_mevcut() + 1);
             grupRepo.save(grup);
             return grup;
         } else {
@@ -59,5 +60,18 @@ public class GruplarService {
         yeniGrup.setOlusturulma_tarihi(grupWrapper.getOlusturulma_tarihi());
         yeniGrup.setGrup_mevcut(1);
         return grupRepo.save(yeniGrup);
+    }
+
+    public List<Integer> getAllUye(Integer grupId) {
+        List<Integer> grupUyeleriId = new ArrayList<>();
+        Gruplar grup = grupRepo.findById(grupId).orElse(null);
+        List<Kullanici> grupUyeler = grup.getUyeler();
+
+        if (grup != null) {
+            for (Kullanici kullanici : grupUyeler) {
+                grupUyeleriId.add(kullanici.getKullaniciId());
+            }
+        }
+        return grupUyeleriId;
     }
 }
